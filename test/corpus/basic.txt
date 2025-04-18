@@ -1,0 +1,21 @@
+=======
+shebang
+=======
+
+#!/usr/bin/env hy
+
+---
+
+(source_file
+    (shebang))
+
+=======
+comment
+=======
+
+; this is a comment
+
+---
+
+(source_file
+    (comment))

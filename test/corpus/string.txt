@@ -1,0 +1,35 @@
+======
+string
+======
+
+("i am a string")
+("i am
+also a string")
+"me too!"
+
+---
+
+(source_file
+    (expression
+        (string))
+    (expression
+        (string))
+    (string))
+
+==============
+bracket string
+==============
+
+(#[[i am a bracket string]])
+(#[[i am
+also a bracket string]])
+#[[me too!]]
+
+---
+
+(source_file
+    (expression
+        (bracket_string))
+    (expression
+        (bracket_string))
+    (bracket_string))

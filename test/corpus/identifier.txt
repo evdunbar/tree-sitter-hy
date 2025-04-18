@@ -1,0 +1,50 @@
+=======
+keyword
+=======
+
+:test
+(f :foo 3)
+
+---
+
+(source_file
+    (keyword)
+    (expression
+        (symbol) (keyword) (integer)))
+
+==================
+dotted identifiers
+==================
+
+(foo.bar.baz)
+(.foo.bar)
+(..foo.bar)
+.foo.bar
+
+---
+
+(source_file
+    (expression 
+        (dotted_identifier))
+    (expression 
+        (dotted_identifier))
+    (expression 
+        (dotted_identifier))
+    (dotted_identifier))
+
+======================
+not dotted identifiers
+======================
+
+.
+...
+........
+. .
+
+---
+
+(source_file
+    (symbol)
+    (symbol)
+    (symbol)
+    (symbol) (symbol))

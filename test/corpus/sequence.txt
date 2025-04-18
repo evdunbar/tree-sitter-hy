@@ -1,0 +1,82 @@
+==========
+expression
+==========
+
+(test this)
+
+---
+
+(source_file
+    (expression
+        (symbol) (symbol)))
+
+====
+list
+====
+
+[me list]
+[]
+
+---
+
+(source_file
+    (list
+        (symbol) (symbol))
+    (list))
+
+=====
+tuple
+=====
+
+#(first second)
+#()
+
+---
+
+(source_file
+    (tuple
+        (symbol) (symbol))
+    (tuple))
+
+===
+set
+===
+
+#{look me}
+#{}
+
+---
+
+(source_file
+    (set
+        (symbol) (symbol))
+    (set))
+
+==========
+dictionary
+==========
+
+{key value}
+{}
+
+---
+
+(source_file
+    (dictionary
+        (symbol) (symbol))
+    (dictionary))
+
+===================
+function definition
+===================
+
+(defn my-fn []
+    (print "abcd"))
+
+---
+
+(source_file
+    (expression
+        (symbol) (symbol) (list)
+        (expression
+            (symbol) (string))))

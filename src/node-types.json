@@ -1,0 +1,1145 @@
+[
+  {
+    "type": "dictionary",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#*",
+            "named": false
+          },
+          {
+            "type": "#**",
+            "named": false
+          },
+          {
+            "type": "'",
+            "named": false
+          },
+          {
+            "type": "`",
+            "named": false
+          },
+          {
+            "type": "bracket_string",
+            "named": true
+          },
+          {
+            "type": "comment",
+            "named": true
+          },
+          {
+            "type": "complex",
+            "named": true
+          },
+          {
+            "type": "dictionary",
+            "named": true
+          },
+          {
+            "type": "discard",
+            "named": true
+          },
+          {
+            "type": "dotted_identifier",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "~",
+            "named": false
+          },
+          {
+            "type": "~@",
+            "named": false
+          }
+        ]
+      },
+      "quasiquote": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "`",
+            "named": false
+          }
+        ]
+      },
+      "quote": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "'",
+            "named": false
+          }
+        ]
+      },
+      "unpack_iterable": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#*",
+            "named": false
+          }
+        ]
+      },
+      "unpack_mapping": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#**",
+            "named": false
+          }
+        ]
+      },
+      "unqoute": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~",
+            "named": false
+          }
+        ]
+      },
+      "unqoute_splice": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~@",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#*",
+            "named": false
+          },
+          {
+            "type": "#**",
+            "named": false
+          },
+          {
+            "type": "'",
+            "named": false
+          },
+          {
+            "type": "`",
+            "named": false
+          },
+          {
+            "type": "bracket_string",
+            "named": true
+          },
+          {
+            "type": "comment",
+            "named": true
+          },
+          {
+            "type": "complex",
+            "named": true
+          },
+          {
+            "type": "dictionary",
+            "named": true
+          },
+          {
+            "type": "discard",
+            "named": true
+          },
+          {
+            "type": "dotted_identifier",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "~",
+            "named": false
+          },
+          {
+            "type": "~@",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "discard",
+    "named": true,
+    "fields": {
+      "quasiquote": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "`",
+            "named": false
+          }
+        ]
+      },
+      "quote": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "'",
+            "named": false
+          }
+        ]
+      },
+      "unpack_iterable": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "#*",
+            "named": false
+          }
+        ]
+      },
+      "unpack_mapping": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "#**",
+            "named": false
+          }
+        ]
+      },
+      "unqoute": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "~",
+            "named": false
+          }
+        ]
+      },
+      "unqoute_splice": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "~@",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "bracket_string",
+          "named": true
+        },
+        {
+          "type": "complex",
+          "named": true
+        },
+        {
+          "type": "dictionary",
+          "named": true
+        },
+        {
+          "type": "dotted_identifier",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "set",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dotted_identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "expression",
+    "named": true,
+    "fields": {
+      "quasiquote": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "`",
+            "named": false
+          }
+        ]
+      },
+      "quote": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "'",
+            "named": false
+          }
+        ]
+      },
+      "unpack_iterable": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#*",
+            "named": false
+          }
+        ]
+      },
+      "unpack_mapping": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#**",
+            "named": false
+          }
+        ]
+      },
+      "unqoute": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~",
+            "named": false
+          }
+        ]
+      },
+      "unqoute_splice": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~@",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bracket_string",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "complex",
+          "named": true
+        },
+        {
+          "type": "dictionary",
+          "named": true
+        },
+        {
+          "type": "discard",
+          "named": true
+        },
+        {
+          "type": "dotted_identifier",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "set",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "integer",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "list",
+    "named": true,
+    "fields": {
+      "quasiquote": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "`",
+            "named": false
+          }
+        ]
+      },
+      "quote": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "'",
+            "named": false
+          }
+        ]
+      },
+      "unpack_iterable": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#*",
+            "named": false
+          }
+        ]
+      },
+      "unpack_mapping": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#**",
+            "named": false
+          }
+        ]
+      },
+      "unqoute": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~",
+            "named": false
+          }
+        ]
+      },
+      "unqoute_splice": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~@",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bracket_string",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "complex",
+          "named": true
+        },
+        {
+          "type": "dictionary",
+          "named": true
+        },
+        {
+          "type": "discard",
+          "named": true
+        },
+        {
+          "type": "dotted_identifier",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "set",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "set",
+    "named": true,
+    "fields": {
+      "quasiquote": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "`",
+            "named": false
+          }
+        ]
+      },
+      "quote": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "'",
+            "named": false
+          }
+        ]
+      },
+      "unpack_iterable": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#*",
+            "named": false
+          }
+        ]
+      },
+      "unpack_mapping": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#**",
+            "named": false
+          }
+        ]
+      },
+      "unqoute": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~",
+            "named": false
+          }
+        ]
+      },
+      "unqoute_splice": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~@",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bracket_string",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "complex",
+          "named": true
+        },
+        {
+          "type": "dictionary",
+          "named": true
+        },
+        {
+          "type": "discard",
+          "named": true
+        },
+        {
+          "type": "dotted_identifier",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "set",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {
+      "quasiquote": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "`",
+            "named": false
+          }
+        ]
+      },
+      "quote": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "'",
+            "named": false
+          }
+        ]
+      },
+      "unpack_iterable": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#*",
+            "named": false
+          }
+        ]
+      },
+      "unpack_mapping": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#**",
+            "named": false
+          }
+        ]
+      },
+      "unqoute": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~",
+            "named": false
+          }
+        ]
+      },
+      "unqoute_splice": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~@",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bracket_string",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "complex",
+          "named": true
+        },
+        {
+          "type": "dictionary",
+          "named": true
+        },
+        {
+          "type": "discard",
+          "named": true
+        },
+        {
+          "type": "dotted_identifier",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "set",
+          "named": true
+        },
+        {
+          "type": "shebang",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "symbol",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tuple",
+    "named": true,
+    "fields": {
+      "quasiquote": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "`",
+            "named": false
+          }
+        ]
+      },
+      "quote": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "'",
+            "named": false
+          }
+        ]
+      },
+      "unpack_iterable": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#*",
+            "named": false
+          }
+        ]
+      },
+      "unpack_mapping": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "#**",
+            "named": false
+          }
+        ]
+      },
+      "unqoute": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~",
+            "named": false
+          }
+        ]
+      },
+      "unqoute_splice": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~@",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bracket_string",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "complex",
+          "named": true
+        },
+        {
+          "type": "dictionary",
+          "named": true
+        },
+        {
+          "type": "discard",
+          "named": true
+        },
+        {
+          "type": "dotted_identifier",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "set",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "#(",
+    "named": false
+  },
+  {
+    "type": "#*",
+    "named": false
+  },
+  {
+    "type": "#**",
+    "named": false
+  },
+  {
+    "type": "#_",
+    "named": false
+  },
+  {
+    "type": "#{",
+    "named": false
+  },
+  {
+    "type": "'",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "`",
+    "named": false
+  },
+  {
+    "type": "bracket_string",
+    "named": true
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "complex",
+    "named": true
+  },
+  {
+    "type": "float",
+    "named": true
+  },
+  {
+    "type": "keyword",
+    "named": true
+  },
+  {
+    "type": "shebang",
+    "named": true
+  },
+  {
+    "type": "string",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  },
+  {
+    "type": "~",
+    "named": false
+  },
+  {
+    "type": "~@",
+    "named": false
+  }
+]
