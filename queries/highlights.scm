@@ -16,7 +16,7 @@
 ((symbol) @constant.builtin
   (#any-of? @constant.builtin
     ; https://docs.python.org/3/library/constants.html
-    "NotImplemented" "Ellipsis" "quit" "exit" "copyright" "credits" "license"))
+    "NotImplemented" "Ellipsis" "quit" "exit" "copyright" "credits" "license" "..."))
 
 ((symbol) @character.special
   (#eq? @character.special "_"))
@@ -38,7 +38,7 @@
   .
   (list
     (symbol)* @parameter)
-  (#eq? @keyword.function "defn"))
+  (#any-of? @keyword.function "defn" "defmacro" "defmacro!" "defreader"))
 
 (expression
   .
@@ -79,6 +79,15 @@
   (#any-of? @operator
     "-" "-=" "!=" "*" "**" "**=" "*=" "/" "//" "//=" "/=" "&" "&=" "%" "%=" "^" "^=" "+" "+=" "<"
     "<<" "<<=" "<=" "<>" "=" ">" ">=" ">>" ">>=" "@" "@=" "|" "|="))
+
+[
+  "'"
+  "`"
+  "~"
+  "~@"
+  "#*"
+  "#**"
+] @punctuation.special
 
 [
   "("
@@ -185,5 +194,5 @@
   (#any-of? @function.macro
     "do" "do-mac" "eval-and-compile" "eval-when-compile" "py" "pys" "pragma" "quote" "quasiquote"
     "unquote" "unquote-splice" "setv" "setx" "let" "global" "nonlocal" "del" "annotate" "deftype"
-    "unpack-iterable" "unpack-mapping" "defmacro" "defreader" "get-macro" "local-macros" "export"
+    "unpack-iterable" "unpack-mapping" "get-macro" "local-macros" "export"
     "get" "cut"))
