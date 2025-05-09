@@ -8,10 +8,10 @@
   (#lua-match? @type "^[A-Z].*[a-z]"))
 
 ((symbol) @constant
-  (#lua-match? @constant "^[A-Z][A-Z_0-9]*$"))
+  (#lua-match? @constant "^[A-Z][A-Z0-9_-]*$"))
 
 ((symbol) @constant.builtin
-  (#lua-match? @constant.builtin "^__[a-zA-Z0-9_]*__$"))
+  (#lua-match? @constant.builtin "^__[a-zA-Z0-9_-]*__$"))
 
 ((symbol) @constant.builtin
   (#any-of? @constant.builtin
@@ -38,7 +38,7 @@
   .
   (list
     (symbol)* @parameter)
-  (#eq? @keyword.function "defn"))
+  (#any-of? @keyword.function "defn" "defmacro"))
 
 (expression
   .
@@ -46,7 +46,7 @@
   .
   (list
     (symbol)* @parameter)
-  (#eq? @keyword.function "fn"))
+  (#any-of? @keyword.function "fn" "defreader"))
 
 ; Literals
 ((symbol) @constant.builtin
@@ -73,24 +73,6 @@
   (comment)
   (discard)
 ] @comment
-
-; Tokens
-((symbol) @operator
-  (#any-of? @operator
-    "-" "-=" "!=" "*" "**" "**=" "*=" "/" "//" "//=" "/=" "&" "&=" "%" "%=" "^" "^=" "+" "+=" "<"
-    "<<" "<<=" "<=" "<>" "=" ">" ">=" ">>" ">>=" "@" "@=" "|" "|="))
-
-[
-  "("
-  ")"
-  "["
-  "]"
-  "{"
-  "}"
-] @punctuation.bracket
-
-(dotted_identifier
-  "." @punctuation.delimiter)
 
 ; Keywords
 (expression
@@ -125,7 +107,7 @@
   (#any-of? @keyword.import "import" "require"))
 
 ((symbol) @keyword.conditional
-  (#any-of? @keyword.conditional "if" "when" "cond" "else" "match"))
+  (#any-of? @keyword.conditional "if" "when" "cond" "else" "match" "chainc"))
 
 ((symbol) @keyword.repeat
   (#any-of? @keyword.repeat "for" "while" "break" "continue" "lfor" "dfor" "gfor" "sfor"))
@@ -137,30 +119,18 @@
 (expression
   .
   (symbol) @keyword.type
-  (symbol) @type
   .
-  (list
-    (symbol)* @type)
-  (expression
-    .
-    (symbol) @_setv
-    (symbol) @variable.member
-    (#eq? @_setv "setv"))
-  (expression
-    .
-    (symbol) @_defn
-    (symbol)
-    (list
-      .
-      (symbol) @variable.builtin)
-    (#eq? @_defn "defn"))
+  (symbol) @type
   (#eq? @keyword.type "defclass"))
+
+((symbol) @variable.builtin
+  (#eq? @variable.builtin "self"))
 
 (expression
   .
   (symbol) @_dot
   .
-  (symbol)
+  (_)
   .
   (symbol) @variable.member
   (#eq? @_dot "."))
@@ -185,5 +155,34 @@
   (#any-of? @function.macro
     "do" "do-mac" "eval-and-compile" "eval-when-compile" "py" "pys" "pragma" "quote" "quasiquote"
     "unquote" "unquote-splice" "setv" "setx" "let" "global" "nonlocal" "del" "annotate" "deftype"
-    "unpack-iterable" "unpack-mapping" "defmacro" "defreader" "get-macro" "local-macros" "export"
-    "get" "cut"))
+    "." "unpack-iterable" "unpack-mapping" "with" "get-macro" "local-macros" "export" "get" "cut"
+    "assert"))
+
+; Tokens
+((symbol) @operator
+  (#any-of? @operator
+    "-" "-=" "!=" "*" "**" "**=" "*=" "/" "//" "//=" "/=" "&" "&=" "%" "%=" "^" "^=" "+" "+=" "<"
+    "<<" "<<=" "<=" "<>" "=" ">" ">=" ">>" ">>=" "@" "@=" "|" "|="))
+
+[
+  "#("
+  "("
+  ")"
+  "["
+  "]"
+  "#{"
+  "{"
+  "}"
+] @punctuation.bracket
+
+[
+  "'"
+  "`"
+  "~"
+  "~@"
+  "#*"
+  "#**"
+] @function.macro
+
+(dotted_identifier
+  "." @punctuation.delimiter)
