@@ -38,7 +38,7 @@
   .
   (list
     (symbol)* @parameter)
-  (#any-of? @keyword.function "defn" "defmacro" "defmacro!" "defreader"))
+  (#any-of? @keyword.function "defn" "defmacro" "defmacro!"))
 
 (expression
   .
@@ -46,7 +46,7 @@
   .
   (list
     (symbol)* @parameter)
-  (#eq? @keyword.function "fn"))
+  (#any-of? @keyword.function "fn" "defreader"))
 
 ; Literals
 ((symbol) @constant.builtin
