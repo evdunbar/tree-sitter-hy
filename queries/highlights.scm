@@ -16,7 +16,7 @@
 ((symbol) @constant.builtin
   (#any-of? @constant.builtin
     ; https://docs.python.org/3/library/constants.html
-    "NotImplemented" "Ellipsis" "quit" "exit" "copyright" "credits" "license"))
+    "NotImplemented" "Ellipsis" "quit" "exit" "copyright" "credits" "license" "..."))
 
 ((symbol) @character.special
   (#eq? @character.special "_"))
@@ -74,6 +74,7 @@
   (discard)
 ] @comment
 
+((symbol) @operator
 ; Keywords
 (expression
   .
