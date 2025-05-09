@@ -74,7 +74,6 @@
   (discard)
 ] @comment
 
-((symbol) @operator
 ; Keywords
 (expression
   .
