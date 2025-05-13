@@ -4,7 +4,16 @@
   (immediate_symbol)
 ] @variable
 
-(keyword) @property
+(keyword
+  (immediate_symbol) @variable.parameter)
+
+(dotted_identifier
+  [
+    (symbol) @variable.member
+    (immediate_symbol) @variable.member
+    (_)
+    _
+  ]+)
 
 ; Symbol naming conventions
 ([
@@ -43,22 +52,53 @@
   (dotted_identifier) @function.method.call)
 
 ;Function definitions
-(expression
-  .
-  (symbol) @keyword.function
-  (symbol) @function
-  .
-  (list
-    (symbol)* @parameter)
-  (#any-of? @keyword.function "defn" "defmacro"))
+(function
+  "defn" @keyword.function
+  "async"? @keyword.function
+  decorators: (variable_list
+    [
+      (symbol)
+      (dotted_identifier)
+    ]+ @attribute)?
+  (type_parameters
+    "tp" @property
+    [
+      (symbol)
+      (dotted_identifier)
+    ]+ @type)?
+  (type_annotation
+    type: (_) @type)?
+  name: (symbol) @function
+  (parameter_list
+    [
+      (symbol)* @variable.parameter
+      (_)*
+      _*
+    ]*))
 
-(expression
-  .
-  (symbol) @keyword.function
-  .
-  (list
-    (symbol)* @parameter)
-  (#any-of? @keyword.function "fn" "defreader"))
+(lambda
+  "fn" @keyword.function
+  "async"? @keyword.function
+  (parameter_list
+    [
+      (symbol)* @variable.parameter
+      (_)*
+      _*
+    ]*))
+
+(macro
+  "defmacro" @keyword.function
+  name: (symbol) @function
+  (parameter_list
+    [
+      (symbol)* @variable.parameter
+      (_)*
+      _*
+    ]*))
+
+(reader
+  "defreader" @keyword.function
+  name: (symbol) @function)
 
 ; Literals
 ((symbol) @constant.builtin
@@ -104,19 +144,77 @@
 ((symbol) @keyword.return
   (#any-of? @keyword.return "return" "yield"))
 
-(expression
-  .
-  (symbol) @keyword.import
-  .
+(import
+  "import" @keyword.import
   [
-    (symbol)
-    (dotted_identifier)
-  ] @module
-  ((keyword) @keyword
-    .
-    (symbol) @module
-    (#eq? @keyword ":as"))?
-  (#any-of? @keyword.import "import" "require"))
+    (module_import
+      [
+        (symbol) @module
+        (dotted_identifier) @module
+        (aliased_import
+          [
+            (symbol) @module
+            (dotted_identifier) @module
+          ]
+          "as" @keyword.import
+          (symbol) @module)
+      ]*)
+    (named_import
+      [
+        (symbol) @module
+        (dotted_identifier) @module
+        (aliased_import
+          [
+            (symbol) @module
+            (dotted_identifier) @module
+          ]
+          "as" @keyword.import
+          (symbol) @module)
+      ]*)
+  ]*)
+
+(require
+  "require" @keyword.import
+  [
+    (module_import
+      [
+        (symbol) @module
+        (dotted_identifier) @module
+        (aliased_import
+          [
+            (symbol) @module
+            (dotted_identifier) @module
+          ]
+          "as" @keyword.import
+          (symbol) @module)
+      ]*)
+    (named_import
+      [
+        (symbol) @module
+        (dotted_identifier) @module
+        (aliased_import
+          [
+            (symbol) @module
+            (dotted_identifier) @module
+          ]
+          "as" @keyword.import
+          (symbol) @module)
+      ]*)
+    (namespace_require
+      [
+        (symbol) @module
+        (dotted_identifier) @module
+        "macros" @keyword.import
+        "readers" @keyword.import
+        (aliased_import
+          [
+            (symbol) @module
+            (dotted_identifier) @module
+          ]
+          "as" @keyword.import
+          (symbol) @module)
+      ]*)
+  ]*)
 
 ((symbol) @keyword.conditional
   (#any-of? @keyword.conditional "if" "when" "cond" "else" "match" "chainc"))
@@ -128,12 +226,25 @@
   (#any-of? @keyword.exception "raise" "try"))
 
 ; Classes
-(expression
-  .
-  (symbol) @keyword.type
-  .
-  (symbol) @type
-  (#eq? @keyword.type "defclass"))
+(class
+  "defclass" @keyword.type
+  decorators: (variable_list
+    [
+      (symbol)
+      (dotted_identifier)
+    ]+ @attribute)?
+  (type_parameters
+    "tp" @property
+    [
+      (symbol)
+      (dotted_identifier)
+    ]+ @type)?
+  name: (symbol) @type
+  superclasses: (variable_list
+    [
+      (symbol)
+      (dotted_identifier)
+    ]+ @type)?)
 
 ((symbol) @variable.builtin
   (#eq? @variable.builtin "self"))
@@ -141,10 +252,12 @@
 (expression
   .
   (symbol) @_dot
-  .
-  (_)
-  .
+  [
+    _
+    (_)
+  ]+
   (symbol) @variable.member
+  .
   (#eq? @_dot "."))
 
 ; Builtin functions
@@ -194,6 +307,7 @@
   "~@"
   "#*"
   "#**"
+  "#^"
 ] @function.macro
 
 (dotted_identifier
