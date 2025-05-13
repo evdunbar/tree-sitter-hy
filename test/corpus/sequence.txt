@@ -7,8 +7,9 @@ expression
 ---
 
 (source_file
-    (expression
-        (symbol) (symbol)))
+  (expression
+    (symbol)
+    (symbol)))
 
 ====
 list
@@ -20,9 +21,10 @@ list
 ---
 
 (source_file
-    (list
-        (symbol) (symbol))
-    (list))
+  (list
+    (symbol)
+    (symbol))
+  (list))
 
 =====
 tuple
@@ -34,9 +36,10 @@ tuple
 ---
 
 (source_file
-    (tuple
-        (symbol) (symbol))
-    (tuple))
+  (tuple
+    (symbol)
+    (symbol))
+  (tuple))
 
 ===
 set
@@ -48,9 +51,10 @@ set
 ---
 
 (source_file
-    (set
-        (symbol) (symbol))
-    (set))
+  (set
+    (symbol)
+    (symbol))
+  (set))
 
 ==========
 dictionary
@@ -62,9 +66,10 @@ dictionary
 ---
 
 (source_file
-    (dictionary
-        (symbol) (symbol))
-    (dictionary))
+  (dictionary
+    (symbol)
+    (symbol))
+  (dictionary))
 
 ===================
 function definition
@@ -76,7 +81,9 @@ function definition
 ---
 
 (source_file
+  (function
+    (symbol)
+    (parameter_list)
     (expression
-        (symbol) (symbol) (list)
-        (expression
-            (symbol) (string))))
+      (symbol)
+      (string))))

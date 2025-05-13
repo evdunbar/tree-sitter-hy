@@ -1,16 +1,28 @@
 ; Variables
-(symbol) @variable
+[
+  (symbol)
+  (immediate_symbol)
+] @variable
 
 (keyword) @property
 
 ; Symbol naming conventions
-((symbol) @type
+([
+  (symbol)
+  (immediate_symbol)
+] @type
   (#lua-match? @type "^[A-Z].*[a-z]"))
 
-((symbol) @constant
+([
+  (symbol)
+  (immediate_symbol)
+] @constant
   (#lua-match? @constant "^[A-Z][A-Z0-9_-]*$"))
 
-((symbol) @constant.builtin
+([
+  (symbol)
+  (immediate_symbol)
+] @constant.builtin
   (#lua-match? @constant.builtin "^__[a-zA-Z0-9_-]*__$"))
 
 ((symbol) @constant.builtin
@@ -186,3 +198,6 @@
 
 (dotted_identifier
   "." @punctuation.delimiter)
+
+(keyword
+  ":" @punctuation.delimiter)

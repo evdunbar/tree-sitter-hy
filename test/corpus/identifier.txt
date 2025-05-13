@@ -8,9 +8,9 @@ keyword
 ---
 
 (source_file
-    (keyword)
+    (keyword (immediate_symbol))
     (expression
-        (symbol) (keyword) (integer)))
+        (symbol) (keyword (immediate_symbol)) (integer)))
 
 ==================
 dotted identifiers
@@ -25,12 +25,12 @@ dotted identifiers
 
 (source_file
     (expression 
-        (dotted_identifier))
+        (dotted_identifier (symbol) (immediate_symbol) (immediate_symbol)))
     (expression 
-        (dotted_identifier))
-    (expression 
-        (dotted_identifier))
-    (dotted_identifier))
+        (dotted_identifier (immediate_symbol) (immediate_symbol)))
+    (expression
+        (dotted_identifier (immediate_symbol) (immediate_symbol)))
+    (dotted_identifier (immediate_symbol) (immediate_symbol)))
 
 ======================
 not dotted identifiers
@@ -40,11 +40,14 @@ not dotted identifiers
 ...
 ........
 . .
+(. foo bar)
 
 ---
 
 (source_file
-    (symbol)
-    (symbol)
-    (symbol)
-    (symbol) (symbol))
+    (dots)
+    (dots)
+    (dots)
+    (dots) (dots)
+    (expression
+        (dots) (symbol) (symbol)))

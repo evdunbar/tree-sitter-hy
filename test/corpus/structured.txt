@@ -1,0 +1,287 @@
+======
+import
+======
+
+(import sys os.path)
+(import os.path [exists  isdir :as is-dir  isfile])
+(import sys :as systest)
+(import sys *)
+(import tests.resources [kwtest function-with-a-dash]
+        os.path [exists
+                 isdir :as is-dir
+                 isfile :as is-file]
+        sys :as systest
+        math *)
+
+---
+
+(source_file
+  (import
+    (module_import
+      (symbol))
+    (module_import
+      (dotted_identifier
+        (symbol)
+        (immediate_symbol))))
+  (import
+    (named_import
+      (dotted_identifier
+        (symbol)
+        (immediate_symbol))
+      (symbol)
+      (aliased_import
+        (symbol)
+        (symbol))
+      (symbol)))
+  (import
+    (module_import
+      (aliased_import
+        (symbol)
+        (symbol))))
+  (import
+    (module_import
+      (symbol)))
+  (import
+    (named_import
+      (dotted_identifier
+        (symbol)
+        (immediate_symbol))
+      (symbol)
+      (symbol))
+    (named_import
+      (dotted_identifier
+        (symbol)
+        (immediate_symbol))
+      (symbol)
+      (aliased_import
+        (symbol)
+        (symbol))
+      (aliased_import
+        (symbol)
+        (symbol)))
+    (module_import
+      (aliased_import
+        (symbol)
+        (symbol)))
+    (module_import
+      (symbol))))
+
+=======
+require
+=======
+
+(require mymodule)
+(require mymodule :as M)
+(require mymodule [foo])
+(require mymodule *)
+(require mymodule [foo :as bar])
+(require mymodule :macros [foo] :readers [spiff])
+(require mymodule
+         mymodule :readers [spiff])
+
+---
+
+(source_file
+  (require
+    (module_import
+      (symbol)))
+  (require
+    (module_import
+      (aliased_import
+        (symbol)
+        (symbol))))
+  (require
+    (named_import
+      (symbol)
+      (symbol)))
+  (require
+    (module_import
+      (symbol)))
+  (require
+    (named_import
+      (symbol)
+      (aliased_import
+        (symbol)
+        (symbol))))
+  (require
+    (namespace_require
+      (symbol)
+      (symbol)
+      (symbol)))
+  (require
+    (module_import
+      (symbol))
+    (namespace_require
+      (symbol)
+      (symbol))))
+
+========
+function
+========
+
+(defn name [params] bodyform1 bodyform2)
+(defn :async [decorator1 decorator2] :tp [T1 T2] #^ annotation name [params])
+(defn f [a / b [c 3] * d e #** kwargs]
+    [a b c d e kwargs])
+
+---
+
+(source_file
+  (function
+    (symbol)
+    (parameter_list
+      (symbol))
+    (symbol)
+    (symbol))
+  (function
+    (variable_list
+      (symbol)
+      (symbol))
+    (type_parameters
+      (symbol)
+      (symbol))
+    (type_annotation
+      (symbol))
+    (symbol)
+    (parameter_list
+      (symbol)))
+  (function
+    (symbol)
+    (parameter_list
+      (symbol)
+      (symbol)
+      (symbol)
+      (integer)
+      (symbol)
+      (symbol)
+      (symbol))
+    (list
+      (symbol)
+      (symbol)
+      (symbol)
+      (symbol)
+      (symbol)
+      (symbol))))
+
+======
+lambda
+======
+
+(fn [x] (print x))
+(fn :async [x])
+
+---
+
+(source_file
+  (lambda
+    (parameter_list
+      (symbol))
+    (expression
+      (symbol)
+      (symbol)))
+  (lambda
+    (parameter_list
+      (symbol))))
+
+=====
+class
+=====
+
+(defclass [decorator1 decorator2] :tp [T1 T2] MyClass [SuperClass1 SuperClass2]
+  "A class that does things at times."
+
+  (setv
+    attribute1 value1
+    attribute2 value2)
+
+  (defn method1 [self arg1 arg2])
+
+  (defn method2 [self arg1 arg2]))
+
+---
+
+(source_file
+  (class
+    (variable_list
+      (symbol)
+      (symbol))
+    (type_parameters
+      (symbol)
+      (symbol))
+    (symbol)
+    (variable_list
+      (symbol)
+      (symbol))
+    (string)
+    (expression
+      (symbol)
+      (symbol)
+      (symbol)
+      (symbol)
+      (symbol))
+    (function
+      (symbol)
+      (parameter_list
+        (symbol)
+        (symbol)
+        (symbol)))
+    (function
+      (symbol)
+      (parameter_list
+        (symbol)
+        (symbol)
+        (symbol)))))
+
+=====
+macro
+=====
+
+(defmacro hypotenuse [a b]
+  (import math)
+  `(math.sqrt (+ (** ~a 2) (** ~b 2))))
+
+---
+
+(source_file
+  (macro
+    (symbol)
+    (parameter_list
+      (symbol)
+      (symbol))
+    (import
+      (module_import
+        (symbol)))
+    (sugar)
+    (expression
+      (dotted_identifier
+        (symbol)
+        (immediate_symbol))
+      (expression
+        (symbol)
+        (expression
+          (symbol)
+          (sugar)
+          (symbol)
+          (integer))
+        (expression
+          (symbol)
+          (sugar)
+          (symbol)
+          (integer))))))
+
+======
+reader
+======
+
+(defreader hi
+  '(print "Hello."))
+
+---
+
+(source_file
+  (reader
+    (symbol)
+    (sugar)
+    (expression
+      (symbol)
+      (string))))
