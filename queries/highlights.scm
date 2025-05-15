@@ -126,6 +126,12 @@
   (discard)
 ] @comment
 
+[
+  (string)
+  (bracket_string)
+  (comment)
+] @spell
+
 ; Keywords
 (expression
   .
@@ -278,10 +284,17 @@
   .
   (symbol) @function.macro
   (#any-of? @function.macro
-    "do" "do-mac" "eval-and-compile" "eval-when-compile" "py" "pys" "pragma" "quote" "quasiquote"
-    "unquote" "unquote-splice" "setv" "setx" "let" "global" "nonlocal" "del" "annotate" "deftype"
-    "." "unpack-iterable" "unpack-mapping" "with" "get-macro" "local-macros" "export" "get" "cut"
+    "do" "do-mac" "eval-and-compile" "eval-when-compile" "pragma" "quote" "quasiquote" "unquote"
+    "unquote-splice" "setv" "setx" "let" "global" "nonlocal" "del" "annotate" "deftype" "."
+    "unpack-iterable" "unpack-mapping" "with" "get-macro" "local-macros" "export" "get" "cut"
     "assert"))
+
+(py
+  .
+  [
+    "py"
+    "pys"
+  ] @function.macro)
 
 ; Tokens
 ((symbol) @operator

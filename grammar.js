@@ -47,6 +47,7 @@ module.exports = grammar({
       $.class,
       $.macro,
       $.reader,
+      $.py,
     ),
 
     _form: $ => seq(optional($.sugar), choice($._identifier, $._sequence, $._string)),
@@ -225,6 +226,14 @@ module.exports = grammar({
       repeat($._element),
       ')',
     ),
+    py: $ => seq(
+      '(',
+      choice('py', 'pys'),
+      '"',
+      $.code,
+      '"',
+      ')',
+    ),
 
     module_import: $ => seq(
       choice(
@@ -307,6 +316,8 @@ module.exports = grammar({
       ),
       ']',
     ),
+
+    code: _ => /[^"]*/,
 
     _variable: $ => choice(
       $.symbol,

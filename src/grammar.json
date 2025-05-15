@@ -85,6 +85,10 @@
         {
           "type": "SYMBOL",
           "name": "reader"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "py"
         }
       ]
     },
@@ -1953,6 +1957,44 @@
         }
       ]
     },
+    "py": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "py"
+            },
+            {
+              "type": "STRING",
+              "value": "pys"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code"
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
     "module_import": {
       "type": "SEQ",
       "members": [
@@ -2237,6 +2279,10 @@
           "value": "]"
         }
       ]
+    },
+    "code": {
+      "type": "PATTERN",
+      "value": "[^\"]*"
     },
     "_variable": {
       "type": "CHOICE",

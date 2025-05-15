@@ -131,6 +131,10 @@
           "named": true
         },
         {
+          "type": "py",
+          "named": true
+        },
+        {
           "type": "reader",
           "named": true
         },
@@ -164,6 +168,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "code",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "dictionary",
@@ -239,6 +248,10 @@
           },
           {
             "type": "macro",
+            "named": true
+          },
+          {
+            "type": "py",
             "named": true
           },
           {
@@ -341,6 +354,10 @@
           },
           {
             "type": "macro",
+            "named": true
+          },
+          {
+            "type": "py",
             "named": true
           },
           {
@@ -554,6 +571,10 @@
           "named": true
         },
         {
+          "type": "py",
+          "named": true
+        },
+        {
           "type": "reader",
           "named": true
         },
@@ -683,6 +704,10 @@
         },
         {
           "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "py",
           "named": true
         },
         {
@@ -844,6 +869,10 @@
           "named": true
         },
         {
+          "type": "py",
+          "named": true
+        },
+        {
           "type": "reader",
           "named": true
         },
@@ -948,6 +977,10 @@
         },
         {
           "type": "macro",
+          "named": true
+        },
+        {
+          "type": "py",
           "named": true
         },
         {
@@ -1070,6 +1103,10 @@
         },
         {
           "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "py",
           "named": true
         },
         {
@@ -1248,6 +1285,21 @@
     }
   },
   {
+    "type": "py",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "code",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "reader",
     "named": true,
     "fields": {
@@ -1332,6 +1384,10 @@
         },
         {
           "type": "macro",
+          "named": true
+        },
+        {
+          "type": "py",
           "named": true
         },
         {
@@ -1465,6 +1521,10 @@
           "named": true
         },
         {
+          "type": "py",
+          "named": true
+        },
+        {
           "type": "reader",
           "named": true
         },
@@ -1570,6 +1630,10 @@
         },
         {
           "type": "macro",
+          "named": true
+        },
+        {
+          "type": "py",
           "named": true
         },
         {
@@ -1691,6 +1755,10 @@
         },
         {
           "type": "macro",
+          "named": true
+        },
+        {
+          "type": "py",
           "named": true
         },
         {
@@ -1909,6 +1977,14 @@
   },
   {
     "type": "macros",
+    "named": false
+  },
+  {
+    "type": "py",
+    "named": false
+  },
+  {
+    "type": "pys",
     "named": false
   },
   {
